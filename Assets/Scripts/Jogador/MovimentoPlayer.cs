@@ -4,50 +4,29 @@ using UnityEngine;
 
 public class MovimentoPlayer : MonoBehaviour
 {
-    [Header("Basic Info")]
-    [SerializeField]
-    private float horizontal;
-    private float speed = 8f;
-    private bool isFacingRight = true;
+    public CharacterController2D controller;
 
-    [Header("Jump Info")]
-    [SerializeField]
-    private float jumpPower = 16f;
+    [Header("Parameters")]
+    public float runSpeed = 40f;
+    public Joystick joystick;
+    public FixedButton jumpButton;
+    bool jump = false;
 
-    [Header("Other Components")]
-    [SerializeField]
-    private Rigidbody2D rb;
-    private Transform groundCheck;
-    private LayerMask groundLayer;
+    float horizontalMove = 0f;
 
-    void Start()
+    private void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
+        horizontalMove = joystick.Horizontal * runSpeed;
 
-    // Update is called once per frame
-    void Update()
-    {
-        horizontal = Input.GetAxis("Horizontal");
-
-        if(Input.GetButtonDown("Jump") && isGrounded())
+        if (jumpButton.Pressed)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-        }
-
-        if(Input.GetButtonUp("JUmp") && rb.velocity.y > 0)
-        {
-
+            jump = true;
         }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed * Time.deltaTime, rb.velocity.y);
-    }
-
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        jump = false;
     }
 }
