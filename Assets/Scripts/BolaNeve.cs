@@ -18,9 +18,14 @@ public class BolaNeve : MonoBehaviour
     public int damage;
     public int currentDamage;
 
+    public float iceEffectDuration;
+    public float startIceEffectDuration = 10f;
+
     void Start()
     {
         rb.velocity = transform.right * speed;
+
+        iceEffectDuration = startIceEffectDuration;
 
         currentSprite = GetComponent<SpriteRenderer>();
         currentDamage = damage;
@@ -33,6 +38,7 @@ public class BolaNeve : MonoBehaviour
         {
             currentSprite.sprite = iceSprite;
             damage = 3;
+            iceEffectDuration -= Time.deltaTime;
         }
 
         else
@@ -42,5 +48,25 @@ public class BolaNeve : MonoBehaviour
         }
 
         currentDamage = damage;
+
+        if (!currentSprite.isVisible)
+        {
+            Destroy(gameObject);
+        }
+
+        if (iceEffectDuration <= 0)
+        {
+            isIce = false;
+            iceEffectDuration = startIceEffectDuration;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<BasicPatroll>().life -= damage;
+            Destroy(gameObject);
+        }
     }
 }

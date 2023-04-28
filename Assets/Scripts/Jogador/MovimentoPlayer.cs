@@ -14,6 +14,13 @@ public class MovimentoPlayer : MonoBehaviour
 
     float horizontalMove = 0f;
 
+    public int life;
+
+    public bool isInvinceble;
+    public float timeWithInvicibility;
+
+    public Animator anim;
+
     private void Update()
     {
         horizontalMove = joystick.Horizontal * runSpeed;
@@ -22,6 +29,15 @@ public class MovimentoPlayer : MonoBehaviour
         {
             jump = true;
         }
+
+        CheckDeath();
+
+        if(isInvinceble == true)
+        {
+            StartCoroutine(Invinceble());
+        }
+
+        anim.SetFloat("speed", horizontalMove);
     }
 
     private void FixedUpdate()
@@ -29,4 +45,19 @@ public class MovimentoPlayer : MonoBehaviour
         controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
+
+    public void CheckDeath()
+    {
+        if(life <= 0)
+        {
+            Debug.Log("Player is DED");
+        }
+    }
+
+    IEnumerator Invinceble()
+    {
+        yield return new WaitForSeconds(timeWithInvicibility);
+        isInvinceble = false;
+    }
 }
+
