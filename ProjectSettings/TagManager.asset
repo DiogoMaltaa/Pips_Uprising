@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Water
+  - LevelEnding
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - Ground
   - Power
   - Confiner
-  - 
+  - Enemy
   - 
   - 
   - 

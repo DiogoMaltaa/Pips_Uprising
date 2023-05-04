@@ -12,6 +12,8 @@ public class Atirar : MonoBehaviour
     public float timeShoot;
     float timeBeforeShooting;
 
+    public AudioSource shooting;
+
     private void Start()
     {
         timeBeforeShooting = timeShoot;
@@ -32,6 +34,7 @@ public class Atirar : MonoBehaviour
 
     public void Shoot()
     {
+        shooting.Play();
         Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.rotation);
         timeBeforeShooting = timeShoot;
     }

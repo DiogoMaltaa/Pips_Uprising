@@ -25,7 +25,16 @@ public class enemyBall : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<MovimentoPlayer>().life -= damage;
+            if (!collision.gameObject.GetComponent<MovimentoPlayer>().isInvinceble)
+            {
+                collision.gameObject.GetComponent<MovimentoPlayer>().life -= damage;
+                collision.gameObject.GetComponent<MovimentoPlayer>().isInvinceble = true;
+            }
+            else
+            {
+                return;
+            }
+            
         }
     }
 }

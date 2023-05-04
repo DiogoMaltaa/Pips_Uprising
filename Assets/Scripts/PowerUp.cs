@@ -7,6 +7,7 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private BolaNeve bola;
     GameManager game;
 
+    public AudioSource powerUP;
     public void Start()
     {
         game = FindObjectOfType<GameManager>();
@@ -16,6 +17,7 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            powerUP.Play();
             game.startIceEffect();
             Destroy(gameObject);
         }

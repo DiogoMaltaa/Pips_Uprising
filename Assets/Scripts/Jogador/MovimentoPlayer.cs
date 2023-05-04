@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MovimentoPlayer : MonoBehaviour
 {
@@ -14,20 +16,39 @@ public class MovimentoPlayer : MonoBehaviour
 
     float horizontalMove = 0f;
 
-    public int life;
+    public float life;
+
+    public Image healthBar;
 
     public bool isInvinceble;
     public float timeWithInvicibility;
 
     public Animator anim;
 
+    float currentHealth;
+    public float maxHealth = 5f;
+
+    public string sceneName;
+
+
+    
+
+    private void Start()
+    {
+        healthBar.fillAmount = life / 100;
+        currentHealth = life;
+    }
+
     private void Update()
     {
+        currentHealth = life;
+        healthBar.fillAmount = currentHealth / maxHealth;
+
         horizontalMove = joystick.Horizontal * runSpeed;
 
         if (jumpButton.Pressed)
         {
-            jump = true;
+            jump = true;     
         }
 
         CheckDeath();
@@ -50,7 +71,7 @@ public class MovimentoPlayer : MonoBehaviour
     {
         if(life <= 0)
         {
-            Debug.Log("Player is DED");
+            SceneManager.LoadScene(sceneName);
         }
     }
 
@@ -58,6 +79,15 @@ public class MovimentoPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(timeWithInvicibility);
         isInvinceble = false;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            life = 0;
+        }
+
     }
 }
 

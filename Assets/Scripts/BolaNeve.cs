@@ -29,6 +29,7 @@ public class BolaNeve : MonoBehaviour
 
         currentSprite = GetComponent<SpriteRenderer>();
         currentDamage = damage;
+
     }
 
     // Update is called once per frame
@@ -66,6 +67,12 @@ public class BolaNeve : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<BasicPatroll>().life -= damage;
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            collision.gameObject.GetComponent<BossAI>().health -= damage;
             Destroy(gameObject);
         }
     }
