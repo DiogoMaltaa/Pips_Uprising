@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4372404371585228429}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 386522855669454911}
   - component: {fileID: 6071104954222363297}
   - component: {fileID: 3226332702767675902}
-  - component: {fileID: 2205409452679371395}
-  m_Layer: 9
+  - component: {fileID: -1944174358250903565}
+  m_Layer: 0
   m_Name: AnaoBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -201,10 +201,10 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.06}
+  m_Offset: {x: 0.04, y: -0.11}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!50 &2205409452679371395
+  m_Radius: 0.05
+--- !u!50 &-1944174358250903565
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5378367521973836071}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

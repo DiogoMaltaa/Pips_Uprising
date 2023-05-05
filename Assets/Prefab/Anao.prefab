@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2127265410613221863}
   - component: {fileID: 8958624755649273350}
   - component: {fileID: 3264754001178543256}
-  - component: {fileID: -7149759077465540464}
-  - component: {fileID: -6327816576774725414}
-  m_Layer: 9
+  - component: {fileID: 1182440779526472633}
+  - component: {fileID: 7089808614029531580}
+  m_Layer: 0
   m_Name: Anao
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &-7149759077465540464
+--- !u!58 &1182440779526472633
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,10 +168,10 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: -0.06}
+  m_Offset: {x: 0.04, y: -0.11}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!50 &-6327816576774725414
+  m_Radius: 0.05
+--- !u!50 &7089808614029531580
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4370615245550116489}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -1585,12 +1585,12 @@ MonoBehaviour:
   runSpeed: 20
   joystick: {fileID: 1745247741}
   jumpButton: {fileID: 489278557}
-  life: 5
+  life: 10
   healthBar: {fileID: 90026065}
   isInvinceble: 0
   timeWithInvicibility: 2
   anim: {fileID: 875219599}
-  maxHealth: 5
+  maxHealth: 10
   sceneName: Level2
 --- !u!58 &875219602
 CircleCollider2D:
@@ -4788,7 +4788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755223473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.781001, y: -2.25363, z: -10}
+  m_LocalPosition: {x: -0.1131351, y: -2.25772, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
